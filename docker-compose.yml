@@ -1,0 +1,7 @@
+services:
+  app-store:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps:/data/apps
