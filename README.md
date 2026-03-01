@@ -20,6 +20,31 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Upload APK + App Icon
+
+Use the upload script to publish an APK, upload its icon, and automatically maintain `apps.json` metadata on the server.
+
+```bash
+npm run upload:apk -- \
+  --apk app/build/outputs/apk/debug/app-debug.apk \
+  --icon app/src/main/res/mipmap-xxxhdpi/ic_launcher.png \
+  --name "My App" \
+  --version "1.2.3" \
+  --description "Internal beta"
+```
+
+Defaults:
+
+- `--remote`: `root@78.46.189.129`
+- `--remote-dir`: `/data/apps`
+
+What the script does:
+
+- uploads the APK to `<remote-dir>/<filename>.apk`
+- uploads the icon to `<remote-dir>/icons/<apk-basename>.<ext>`
+- creates or updates `<remote-dir>/apps.json` entry for that APK
+- sets `iconUrl` automatically to `/api/icons/<icon-filename>`
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

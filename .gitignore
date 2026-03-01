@@ -42,3 +42,7 @@ next-env.d.ts
 
 # local APK storage
 /apps/*.apk
+
+# local icon storage
+/apps/icons/*
+!/apps/icons/.gitkeep
