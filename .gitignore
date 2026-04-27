@@ -46,3 +46,8 @@ next-env.d.ts
 # local icon storage
 /apps/icons/*
 !/apps/icons/.gitkeep
+
+# Beads / Dolt files (added by bd init)
+.dolt/
+*.db
+.beads-credential-key
